@@ -6,7 +6,6 @@ import time
 import math
 
 KEY =  sys.argv[3]
-#'Tpk_dfaeb42015194ef68ce4088f2c3b17cc'
 STOCKS = list(pd.read_csv('./data/stocks.csv').columns)
 print(STOCKS)
 

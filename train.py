@@ -23,7 +23,7 @@ model = sys.argv[2]
 if model == 'None':
     model = PPO2('MlpPolicy', env, n_steps=200, nminibatches=4)
 else:
-    model = PPO2.load(f'./models/{sys.argv[2]}')
+    model = PPO2.load(f'./models/{model}')
     model.set_env(DummyVecEnv([lambda: gym.make('gym_trade:train-v0', df=training_data)]))
 
 print('Training Model...')
