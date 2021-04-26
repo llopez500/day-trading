@@ -1,0 +1,13 @@
+pandas
+numpy
+sys
+matplotlib
+requests
+tdqm
+plotly
+dash
+gym
+stable-baselines[mpi]==2.10.0
+tensorflow==1.15
+tensorboard
+
