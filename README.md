@@ -46,7 +46,7 @@ python train.py <load_data.csv> <load_model.zip> <save_model.zip>
 ```
 If you are training a new model, enter None for 'load_data.csv'. All models are saved in models folder.
 
-#### Trading
+### Trading
 
 To do some real-time trading you can use the command below (NOTE: Make sure to have an API key for IEX Cloud first).
 ```bash
