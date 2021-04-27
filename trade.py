@@ -37,17 +37,19 @@ def trade(obs, total_time):
 def getStockPrices():
   daily_prices = []
   symbols = ",".join(STOCKS)
-  batch_api_url = f'https://sandbox.iexapis.com/stable/stock/market/batch?symbols={symbols}&types=quote&token={sys.argv[5]}'
+  batch_api_url = f'https://sandbox.iexapis.com/stable/stock/market/batch?symbols={symbols}&types=quote&token={sys.argv[4]}'
   data = requests.get(batch_api_url).json()
   for symbol in STOCKS:
     daily_prices.append(data[symbol]['quote']['latestPrice'])
   return np.array(daily_prices)
 
-def reset(env, balance, prices, portfolio_value):
+
+def reset(env, balance, prices, shares=[0]*STOCK_DIM):
     obs = np.zeros(1 + 2 * STOCK_DIM)
     obs[0] = balance
     obs[1: STOCK_DIM + 1] = prices
-    env.reset(obs, portfolio_value)
+    obs[STOCK_DIM + 1:] = shares
+    env.reset(obs)
 
     return obs
 
@@ -60,5 +62,5 @@ def next(obs, prices):
 
 model = PPO2.load(f'./models/{sys.argv[1]}')
 env = gym.make('gym_trade:trade-v0')
-obs = reset(env, float(sys.argv[2]), getStockPrices(), float(sys.argv[3]))
-trade(obs, float(sys.argv[4]))
+obs = reset(env, float(sys.argv[2]), getStockPrices())
+trade(obs, float(sys.argv[3]))

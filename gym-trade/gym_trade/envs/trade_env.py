@@ -52,10 +52,10 @@ class StockTradeEnv(gym.Env):
       self.state[index + STOCK_DIM + 1] -= shares_sold
       self.state[0] += shares_sold*price
 
-  def reset(self, state, portfolio_value):
+  def reset(self, state):
     #initialize at the beginning
     self.state = state
-    self.portfolio_value = [portfolio_value]
+    self.portfolio_value = [self.state[0] + sum(self.state[1:STOCK_DIM + 1]*self.state[STOCK_DIM + 1:])]
     self.done = False
 
     return self.state
