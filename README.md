@@ -11,7 +11,7 @@ Reinforcement learning (RL) is a brach of machine learning concerned with maximi
 git clone https://github.com/llopez500/day-trading.git
 ```
 
-###Prerequisites
+### Prerequisites
 
 To collect data using this repository, you'll first need to make an account with [IEX Cloud](https://iexcloud.io/) to receive and API key. 
 
@@ -26,11 +26,11 @@ pip install -r requirements.text
 
 NOTE: Stable Baselines is currently only compatible with TensorFlow 1.x.
 
-##Usage: 
+## Usage: 
 
 To collect data, train, and trade, follow the instructions below.
 
-###Data Collection
+### Data Collection
 
 Enter the following command, substituting names and values in angle bracket with your own (NOTE: Make sure to have an API key for IEX Cloud first).
 ```bash
@@ -38,7 +38,7 @@ python data.py <save_data.csv> <hours> <API key>
 ```
 The 'hours' is a float value indicating how long you would like to collect data. Data files are saved in data folder.
 
-###Training
+### Training
 
 To collect data, enter the following command: 
 ```bash
@@ -46,7 +46,7 @@ python train.py <load_data.csv> <load_model.zip> <save_model.zip>
 ```
 If you are training a new model, enter None for 'load_data.csv'. All models are saved in models folder.
 
-####Trading
+#### Trading
 
 To do some real-time trading you can use the command below (NOTE: Make sure to have an API key for IEX Cloud first).
 ```bash
