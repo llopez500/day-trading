@@ -1,0 +1,7 @@
+README.md
+setup.py
+gym_trade.egg-info/PKG-INFO
+gym_trade.egg-info/SOURCES.txt
+gym_trade.egg-info/dependency_links.txt
+gym_trade.egg-info/requires.txt
+gym_trade.egg-info/top_level.txt
